@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="DataStation"
+  id="myeclipse.1475133879542"
+  context-root="/DataStation"
+  j2ee-spec="5.0"
+  archive="DataStation.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

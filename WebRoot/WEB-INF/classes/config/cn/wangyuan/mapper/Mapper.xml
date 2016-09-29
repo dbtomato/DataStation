@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 命名空间，不能重复 -->
+<mapper namespace="com.bsr.mapper.PresonMapper">
+
+    <!-- 
+		type:给指定类型的实体做映射
+		
+		resultMap:查询库表所对应自定义的实体类的时候使用
+		resultType:查询非自定义的数据类型 int map
+		<![CDATA[ ]]>转义符号
+	 -->
+	<resultMap type="LoginAccountRetain" id="LoginAccountRetainMap">
+		<id column="datekey" property="dateKey"/>
+		<result column="sid" property="sid"/>
+		<result column="uid" property="uid"/>
+		<result column="pid" property="pid"/>
+		<result column="retain" property="retain"/>
+	</resultMap>
+	
+	
+		<resultMap type="NewAccountRetain" id="NewAccountRetainMap">
+		<id column="datekey" property="dateKey"/>
+		<result column="sid" property="sid"/>
+		<result column="uid" property="uid"/>
+		<result column="pid" property="pid"/>
+		<result column="retain" property="retain"/>
+	</resultMap>
+	
+	
+	
+	
+	<!-- 抽取公共的sql片段 -->
+	<sql id="columns">
+		datekey,sid,uid,pid,retain
+	</sql>
+	<select id="selectPersonById" parameterType="int" resultMap="NewAccountRetainMap">
+		SELECT <include refid="columns"/>  FROM test.uid_retain ur 
+		WHERE 1=1
+		<if test="datekey!=null">
+		and ur.datekey=#{datekey,jdbcType=Integer} 
+		</if>
+		<if test="retain!=null">
+		and ur.retain=#{retain,jdbcType=Integer}
+	    </if>
+	</select>
+
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+  <typeAliases>
+		<typeAlias type="cn.wangyuan.model.LoginAccountRetain" alias="LoginAccountRetain"/>
+		<typeAlias type="cn.wangyuan.model.NewAccountRetain" alias="NewAccountRetain"/>
+	</typeAliases>
+	<!--mappers 集中管理库表的映射文件  -->
+	<mappers>
+		<mapper resource="/config/cn/wangyuan/mapper/Mapper.xml" />
+	</mappers>
+</configuration>
